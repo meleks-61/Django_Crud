@@ -1,0 +1,26 @@
+a{
+    text-decoration: none;
+}
+body{
+    background-color: plum;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+    background-color: pink;
+    background-repeat: no-repeat;
+    height: 400px;
+    border-radius:  25px 25px 25px 25px;
+    opacity: 0.8;
+}
+.container2{
+    margin: 50px;
+}

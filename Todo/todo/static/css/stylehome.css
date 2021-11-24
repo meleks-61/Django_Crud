@@ -1,0 +1,21 @@
+body{
+     background-color:pink;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center; */ 
+    text-align: center;
+}
+a{
+    
+    text-decoration: none;
+}
+.container{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center; */
+    text-align: center;
+    margin: 150px 150px;
+
+}

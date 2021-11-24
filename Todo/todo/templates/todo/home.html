@@ -1,0 +1,15 @@
+{%extends 'todo/base.html'%}
+{%load static%}
+
+
+
+
+{%block content%}
+<head>
+    <link rel="stylesheet" href="{% static 'css/stylehome.css'%}">
+    </head>
+    <div class="container">
+<a href="{%url 'list'%}"><h2>Have a nice day:) Let's check todos</h2></a>
+</div>
+
+{%endblock content%}

@@ -1,0 +1,12 @@
+{%extends 'todo/base.html'%}
+{% block content%}
+
+<form action="" method="post" >
+{% csrf_token%}
+{{form.as_p}}  <!--viewden gönderdiğimiz form-->
+<input type="submit" value="Add">
+
+
+
+{% endblock content%}
+</form>

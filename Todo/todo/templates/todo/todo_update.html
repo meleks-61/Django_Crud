@@ -1,0 +1,28 @@
+{%extends 'todo/base.html'%}
+{%load static%}
+
+{%block content%}
+<head>
+    <link rel="stylesheet" href="{% static 'css/styleupdate.css'%}">
+    </head>
+<div class="cont " >
+    <div class="container 2">
+<form action="" method="post">
+    {%csrf_token%}<!--cross site request fraud-->
+    {{form.as_p}}
+
+
+    <input type="submit" value="update">
+</form>
+</div>
+<br>
+<div class="container 3">
+
+<a href="{%url 'delete' todo.id%}">
+    <button>delete</button>
+</a>
+</div>
+</div>
+
+
+{%endblock content%}

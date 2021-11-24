@@ -1,0 +1,50 @@
+{%extends 'todo/base.html'%}
+{%load static%}
+
+{%block content%}
+<head>
+  <link rel="stylesheet" href="{% static 'css/stylelist.css'%}">
+  </head>
+  <div class="container"style="width: 600px  ">
+<div class="container1" >
+
+<div class="container2"><form action="" method="post" >
+    {% csrf_token%}
+    {{form}}
+      <!--viewden gönderdiğimiz form-->
+    <input type="submit" value="Add">
+    
+    </div>
+<h3>ToDos</h3>
+<div class="container3">
+    <!-- <a href="{%url 'add' %}"><button>Add</button></a> -->
+
+    <ul>
+      {% for todo in todos %}
+
+        {% if todo.completed %}
+         <a href="{%url  'update' todo.id%}">
+            <!--yönlendirileceğimiz sayfayı yazarız url den sonra-->
+
+            <h6><li><del>{{todo}}</del></li></h6>
+         </a>
+         
+
+        {% else %}
+         <a href="{%url  'update' todo.id%}">
+            <!--yönlendirileceğimiz sayfayı yazarız url den sonra-->
+
+           <h6> <li>{{todo}}</li></h6>
+         </a>
+        {% endif %}
+
+      {% endfor %}
+
+    </ul>
+</div>
+</div>
+</div>
+
+
+
+{%endblock content%}
