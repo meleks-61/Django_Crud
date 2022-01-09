@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from django import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -152,3 +154,5 @@ CKEDITOR_JQUERY_URL =[STATIC_URL,"js/jquery-3.3.1.min.js"]
 #         'width':'50%'
 #     }
 # }
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())
