@@ -1,0 +1,118 @@
+{%extends 'base.html'%}{%load static%}
+{%load crispy_forms_tags %}
+{%block content%}
+<div class="hero-search set-bg" data-setbg="{{post.image.url}}">
+    <div class="container">
+        <div class="filter-table">
+            <form action="#" class="filter-search">
+
+                <button type="submit">{{post.status}}</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+<section class="blog-section-spad">
+    <div class="recipe-top">
+        <div class="container-fluid">
+            <div class="recipe-title">
+                <h2>{{post.title}}</h2>
+
+                <ul class="tags">
+                    <li>{{post.published_date}}</li>
+
+                </ul>
+            </div>
+
+
+
+            <div class="blog-pic">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-lg-15">
+                            <div class="top-recipe-item large-item">
+                                <div class="top-recipe-img set-bg" data-setbg="{{post.image.url}}">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="blog-text">
+            <div class="blog-desc">
+                <p>{{post.content|safe|linebreaks}}</p>
+
+                <div class="blog-quote">
+                    <i class="fa fa-quote-left"></i>
+                    <p>{{post.author}}</p>
+                    {%if request.user.is_authenticated%}
+                    
+                    <p><a href="{%url 'blog3:update' post.slug %}" class="btn btn-success" role="button">Update</a>
+                        <a href="{%url 'blog3:delete' post.slug %}" class="btn btn-danger" role="button">Delete</a>
+                    </p>
+                    {%endif%}
+                  
+                </div>
+            </div>
+            
+
+                    
+               
+            <div class="blog-comment">
+                <h3>Comments ({{post.comment_count}})</h3>
+                {%for comment in post.comments%}
+                <div class="single-comment">
+                    {%if comment.approved_comment%}
+
+                    <ul>
+                        <li>comment by {{comment.name}}</li>
+                        <li>{{comment.time_stamp|timesince}} ago</li>
+
+                    </ul>
+                    <p>{{comment.content|safe}}</p>
+
+
+                </div>
+                {%endif%}
+                {%endfor%}
+            </div>
+
+            <form action="#" class="comment-form" method="post">
+                {%csrf_token%}
+                <h3>Leave a Comment</h3>
+                <div class="row">
+
+
+                    {{form|crispy}}
+                    {{form.media}}
+                </div>
+
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</section>
+<br><br><br>
+
+
+
+
+
+
+
+{%endblock content%}

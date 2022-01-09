@@ -1,0 +1,186 @@
+{%extends 'base.html'%}{%load static%}
+{%block content%}
+
+<!-- Top Recipe Section Begin -->
+<br><br>
+
+<section class="top-recipe spad">
+    <div class="section-title">
+        <h5>Top Recipes this Week</h5>
+    </div>
+    <div class="container po-relative">
+
+
+
+
+        <div class="plus-icon">
+            <i class="fa fa-plus"></i>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="row">
+            {%for post in posts%}
+
+            <div class="col-lg-4">
+                <div class="top-recipe-item large-item">
+                    <div class="top-recipe-img set-bg" data-setbg="{{post.image.url}}">
+                        <a href="{%url 'blog3:detail' post.slug%}"><i class="fa fa-plus"></i></a>
+                    </div>
+                    <div class="top-recipe-text">
+                        <div class="cat-name">{{post.status}}</div>
+                        <a href="{%url 'blog3:detail' post.slug%}">
+                            <h4>{{post.title}}</h4>
+                        </a>
+                        <p>{{post.content|safe|truncatechars:150}}</p>
+                    </div>
+                </div>
+            </div>
+
+            {%endfor%}
+
+            <!-- pegination -->
+            <div class="pegination flex-row">
+                {%if posts.has_previous%}
+                <a href="?page={{posts.previous_page_number}}{%if request.GET.q%}&q={{request.GET.q}}{%endif%}"><i
+                        class="fas fa-chevron-left"></i>&laquo;</a>
+                {%endif%}
+                <span class="current">
+
+                    Page{{posts.number}} of {{posts.paginator.num_pages}}.
+
+                </span>
+                {%if posts.has_next%}
+                <a href="?page={{posts.next_page_number}}{%if request.GET.q%}&q={{request.GET.q}}{%endif%}"><i
+                        class="fas fa-chevron-right"></i>&raquo;</a>
+                {%endif%}
+            </div>
+            <!-- ----------------------- -->
+
+
+
+        </div>
+    </div>
+</section>
+
+<br><br>
+
+
+<section class="similar-recipe top-recipe spad">
+
+    <div class="section-title">
+        <h5>Categories</h5>
+    </div>
+    <div class="container">
+        
+        <div class="row">
+            {%for cat in cats%}
+            <div class="col-lg-3 col-md-6">
+                
+                <div class="similar-item">
+                    <a href="{%url 'blog3:category' cat.slug%}"><img src="{{cat.image.url}}" alt=""></a>
+                    <div class="similar-text">
+                        <a href="{%url 'blog3:category' cat.slug%}"><div class="cat-name">{{cat.name}}</div></a>
+                        
+                    </div>
+                    
+                </div>
+                
+               
+
+            </div>
+            {%endfor%}
+        </div>
+        
+
+    </div>
+
+    
+
+
+
+
+</section> 
+
+
+<!-- Feature Recipe Section Begin -->
+<section class="feature-recipe">
+    <div class="section-title">
+        <h5>Recent Posts</h5>
+    </div>
+
+    <div class="container po-relative">
+        
+        <div class="row">
+            {%for recent in recent_posts%}
+            <div class="col-lg-6">
+                
+                <div class="fr-item">
+                    
+                    <div class="fr-item-img">
+                        <img src="{{recent.image.url}}" alt="">
+                    </div>
+                    <div class="fr-item-text">
+                      <a href="{%url 'blog3:detail' recent.slug%}"><h4>{{recent.title}}</h4></a>  
+                        <small>({{recent.published_date}})</small>
+                        <p>{{recent.content|safe|truncatechars:150}}</p>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            {%endfor%}
+            <!-- <div class="col-lg-6">
+                <div class="fr-item">
+                    <div class="fr-item-img">
+                        <img src="{%static 'blog3/img/feature-2.jpg'%}" alt="">
+                    </div>
+                    <div class="fr-item-text">
+                        <h4>Sunday Brunch: Spaghetti and Eggs Recipe</h4>
+                        <p>{{post.content|safe|truncatechars:150}}</p>
+                    </div>
+                </div>
+            </div> -->
+          
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form" method="GET" action="" role="search">
+            <input type="text" id="search-input" placeholder="Search here....." name="q" value="{{request.GET.q}}">
+
+        </form>
+    </div>
+</div>
+
+
+{%endblock content%}
+<!-- ckeditör kullanabilmek için {{post.content|safe|linebreaks|truncatechars:80}} -->
