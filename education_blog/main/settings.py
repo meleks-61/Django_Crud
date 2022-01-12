@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     
     #3.package
+    'crispy_forms',
     
 ]
 
