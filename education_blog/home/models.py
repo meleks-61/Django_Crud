@@ -26,7 +26,7 @@ class Teacher(models.Model):
     name=models.CharField(max_length=150)
     email=models.EmailField(max_length=150)
     department=models.ForeignKey(Branch,on_delete=models.CASCADE)#onetomany(foreignkey) ilişki-istediğimiz zaman branch ekleyip ordan seçim yapabilmek için brunch modeli tanımlayıp buraya relation ile bağlamlıyız.Eğer chociefield yaparsak daha sonra branch eklemek için kodu değiştirmemiz gerekebilir
-    image=models.ImageField(upload_to="teacher",default="default.png")
+    image=models.ImageField(upload_to="teacher",default="profile.jpg")
     created_date=models.DateTimeField(auto_now_add=True)
     updated_date=models.DateTimeField(auto_now=True)
     
