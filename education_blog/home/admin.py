@@ -17,6 +17,7 @@ class TeacherAdmin(admin.ModelAdmin):
         "name",
         "email",
         "department",
+        "slug",
         "created_date"
     )
     list_filter=("name",)
@@ -25,6 +26,7 @@ class TeacherAdmin(admin.ModelAdmin):
 class BranchAdmin(admin.ModelAdmin):
     list_display=(
         "title",
+        "slug",
         "created_date"
     )
     list_filter=("title",)

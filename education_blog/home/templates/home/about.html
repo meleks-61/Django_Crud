@@ -35,7 +35,45 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 
   <!-- end about section -->
 
-  <div class="footer_bg">
+  
+    <div class="footer_bg">
+      <!-- contact section -->
+    
+      <section class="contact_section ">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7 mx-auto">
+              <div class="heading_container">
+                <h2 class="">
+                  Get In Touch
+                </h2>
+              </div>
+              <form action="" method="post">
+                {%csrf_token%}
+                
+              
+                <div>
+                 {{form.name}}
+                </div>
+                <div>
+                  {{form.number}}
+                </div>
+                <div>
+                 {{form.email}}
+                </div>
+                <div>
+                  {{form.message}}
+                </div>
+                <div class="d-flex  mt-4 ">
+                  <button>
+                    SEND
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
 
     <!-- contact section -->
 

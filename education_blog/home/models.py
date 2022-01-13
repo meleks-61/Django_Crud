@@ -13,13 +13,13 @@ class Contact(models.Model):
         return self.name
 class Branch(models.Model):
     title=models.CharField(max_length=150)
-    image=models.ImageField(upload_to='brunch',null=True,blank=True)
-    created_date=models.DateTimeField(auto_now_add=True)
+    image=models.ImageField(upload_to='branch',null=True,blank=True)
     slug=models.SlugField(blank=True,unique=True)
+    created_date=models.DateTimeField(auto_now_add=True)
   
     
     def __str__(self):
-        return self.branch
+        return self.title
     
     
     

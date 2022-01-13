@@ -96,7 +96,7 @@
             </div>
             <div class="col-md-6">
               <div class="img-box">
-                <img src="{%static 'images/slider-img.png'%}" alt="">
+                <img src="{%static 'images/about-img.png'%}" alt="">
               </div>
             </div>
           </div>
@@ -158,18 +158,19 @@
     </div>
     <div class="teacher_container layout_padding2">
       <div class="row">
-        {%for teacher in teachers%}
+        {%for branch in branchs%}
         <div class="col-md-3 col-sm-6">
           <div class="box">
             <div class="img-box">
-              <img class="" src="{{teacher.image.url}}" alt="Card image cap">
+              <a href="{% url 'branchs_teacher' branch.slug%}"><img class="" src="{{branch.image.url}}" alt="Card image cap"></a>
             </div>
             <div class="detail-box">
-              <p>
-              <h5>
-               {{teacher.name}}/{{teacher.department}}
-              </h5>
-              </p>
+              
+                <a href="{% url 'branchs_teacher' branch.slug%}"> <p><h5>{{branch.title}}</h5></p>
+               
+            </a>
+
+              
             </div>
           </div>
         </div>
@@ -177,9 +178,9 @@
       </div>
     </div>
     <div class="btn-box">
-      <a href="{% url 'teacher'%}">
+      <!-- <a href="{% url 'teacher'%}">
         See More
-      </a>
+      </a> -->
     </div>
   </div>
 </section>
@@ -267,41 +268,7 @@
 <div class="footer_bg">
   <!-- contact section -->
 
-  <section class="contact_section ">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-7 mx-auto">
-          <div class="heading_container">
-            <h2 class="">
-              Get In Touch
-            </h2>
-          </div>
-          <form action="" method="post">
-            {%csrf_token%}
-            
-          
-            <div>
-             {{form.name}}
-            </div>
-            <div>
-              {{form.number}}
-            </div>
-            <div>
-             {{form.email}}
-            </div>
-            <div>
-              {{form.message}}
-            </div>
-            <div class="d-flex  mt-4 ">
-              <button>
-                SEND
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- end contact section -->
 

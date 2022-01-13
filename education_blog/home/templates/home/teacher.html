@@ -14,7 +14,7 @@
     </div>
     <div class="teacher_container layout_padding2">
       <div class="row">
-        {%for teacher in teachers%}
+        {%for teacher in page_obj%}
         <div class="col-md-3 col-sm-6">
           <div class="box">
             <div class="img-box">
@@ -34,15 +34,35 @@
           </div>
         </div>
         {%endfor%}
+        
       </div>
     </div>
 
   </div>
+  <!-- pegination -->
+<div class="pagination">
+  <span class="step-links">
+      {%if page_obj.has_previous%}
+      <a href="?page=1">&laquo;first</a>
+      <a href="?page={{page_obj.previous_page_number}}">previous</a>
+      {%endif%}
+      <span class="current">
+          Page{{page_obj.number}} of {{page_obj.paginator.num_pages}}.
+      </span>
+      {%if page_obj.has_next%}
+      <a href="?page={{page_obj.next_page_number}}">next</a>
+      <a href="?page={{page_obj.paginator.num_pages}}">last&raquo;</a>
+      {%endif%}
+     
+      
+  </span>
+</div>
+<!-- ------------------------------------------ -->
 </section>
-
-
-
 <!-- teacher section -->
+
+
+
 
 
 <div class="footer_bg">
