@@ -6,7 +6,7 @@ from .models import Teacher
 
 # Create your views here.
 def home(request):
-    teachers=Teacher.objects.order_by("department").distinct()
+    teachers=Teacher.objects.all()
     form=ContactForm(request.POST or None)
     if form.is_valid():
         form.save()#buraya kadar gelmiş bir olay başarılıdır zaten

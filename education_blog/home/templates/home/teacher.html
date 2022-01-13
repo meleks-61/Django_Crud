@@ -3,56 +3,55 @@
 {%block content%}
 
 
-  <!-- teacher section -->
-  <section class="teacher_section ">
-    <div class="container">
-      <div class="heading_container">
-        <h2 class="">
-          Our Teachers
-        </h2>
-      </div>
-      <div class="teacher_container layout_padding2">
-        <div class="row">
-          {%for teacher in teachers%}
-          <div class="col-md-3 col-sm-6">
-            <div class="box">
-              <div class="img-box">
-                <img class="" src="{{teacher.image.url}}" alt="Card image cap">
-              </div>
-              <div class="detail-box">
-                <p>
-                  <h5>
-                    {{teacher.name}}/{{teacher.department}}
-                  </h5>
-                  <h5>
-                    {{teacher.email}}
-                  </h5>
-                 
-                </p>
-              </div>
+<!-- teacher section -->
+
+<section class="teacher_section ">
+  <div class="container">
+    <div class="heading_container">
+      <h2 class="">
+        Our Teachers
+      </h2>
+    </div>
+    <div class="teacher_container layout_padding2">
+      <div class="row">
+        {%for teacher in teachers%}
+        <div class="col-md-3 col-sm-6">
+          <div class="box">
+            <div class="img-box">
+              <img class="" src="{{teacher.image.url}}" alt="Card image cap">
+            </div>
+            <div class="detail-box">
+              <p>
+              <h5>
+                {{teacher.name}}/{{teacher.department}}
+              </h5>
+              <h5>
+                {{teacher.email}}
+              </h5>
+
+              </p>
             </div>
           </div>
-          {%endfor%}
-            </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          See More
-        </a>
+        </div>
+        {%endfor%}
       </div>
     </div>
-  </section>
 
-  <!-- teacher section -->
+  </div>
+</section>
 
 
-  <div class="footer_bg">
 
-    <!-- contact section -->
+<!-- teacher section -->
 
-   
 
-    <!-- end info_section -->
+<div class="footer_bg">
 
-    <!-- footer section -->
-    {%endblock content%}
+  <!-- contact section -->
+
+
+
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  {%endblock content%}

@@ -12,8 +12,11 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 class Branch(models.Model):
-    branch=models.CharField(max_length=150)
+    title=models.CharField(max_length=150)
+    image=models.ImageField(upload_to='brunch',null=True,blank=True)
     created_date=models.DateTimeField(auto_now_add=True)
+    slug=models.SlugField(blank=True,unique=True)
+  
     
     def __str__(self):
         return self.branch
@@ -29,6 +32,7 @@ class Teacher(models.Model):
     image=models.ImageField(upload_to="teacher",default="profile.jpg")
     created_date=models.DateTimeField(auto_now_add=True)
     updated_date=models.DateTimeField(auto_now=True)
+    slug=models.SlugField(blank=True,unique=True)
     
     def __str__(self):
         return self.name

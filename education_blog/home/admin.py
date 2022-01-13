@@ -24,11 +24,11 @@ class TeacherAdmin(admin.ModelAdmin):
     
 class BranchAdmin(admin.ModelAdmin):
     list_display=(
-        "branch",
+        "title",
         "created_date"
     )
-    list_filter=("branch",)
-    search_fields=("branch__startswith",)
+    list_filter=("title",)
+    search_fields=("title__startswith",)
 
 
 
