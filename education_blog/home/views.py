@@ -1,16 +1,27 @@
 from django.shortcuts import redirect, render,HttpResponse,get_object_or_404
 from django.core.paginator import Paginator
-from home.forms import ContactForm
+from home.forms import ContactForm,CommentForm
 from django.contrib import messages
-from .models import Teacher,Branch
+from .models import Teacher,Branch,Comment
 
 # Create your views here.
 def home(request):
+    comments=Comment.objects.all()
     branchs=Branch.objects.all()
+    comment=comments[0]
+    items=comments[1:]
+    
+    form=CommentForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect("home")
    
     context={
+        "comment":comment,
+        "items":items,
+        "branchs":branchs,
+        "form":form
         
-        "branchs":branchs
         
     }
     return render(request,'home/index.html',context)

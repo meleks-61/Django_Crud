@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact,Branch,Teacher
+from .models import Contact,Branch,Teacher,Comment
 
 class ContactAdmin(admin.ModelAdmin):
     list_display=(
@@ -39,3 +39,4 @@ class BranchAdmin(admin.ModelAdmin):
 admin.site.register(Contact,ContactAdmin)
 admin.site.register(Branch,BranchAdmin)
 admin.site.register(Teacher,TeacherAdmin)
+admin.site.register(Comment)

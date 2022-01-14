@@ -21,8 +21,20 @@ class Branch(models.Model):
     def __str__(self):
         return self.title
     
+class Comment(models.Model):
+    name=models.CharField(max_length=100)
+    image=models.ImageField(upload_to="commment",default="profile.jpg")
+    content=models.TextField(max_length=400)
+    created_date=models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return self.name
     
+    class Meta:
+        ordering =['-created_date','id']
+    
+    # def comments(self):
+    #     return self.comment_set.all()
     
     
 class Teacher(models.Model):
